@@ -1,0 +1,23 @@
+# Download GENCODE annotations (adjust version as needed) if you do not have it
+#wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_44/gencode.v44.basic.annotation.gtf.gz
+#gunzip gencode.v44.basic.annotation.gtf.gz
+#The GENCODE file is in the path mentioned below and we have taken it from there
+# Extract TSS coordinates and create promoter regions
+zcat /ocean/project/bio230007p/ikaplow/HumanGenomeInfo/gencode.v47.annotation.gff3.gz |
+awk '$3 == "gene" {if ($7 == "+") {tss=$4} else {tss=$5}; chr=$1; start=(tss-2000>0)?tss-2000:0; end=tss+2000; print chr"\t"start"\t"end}' | 
+sort -k1,1 -k2,2n > promoters_TSS_2kb.bed
+
+#Sort HALPER bedfile if needed
+
+sort -k1,1 -k2,2n halper_great_final.bed > halper_sorted.bed
+
+# Find overlapping regions (promoters)
+bedtools intersect -a halper_sorted.bed -b promoters_TSS_2kb.bed -wa -u > promoters.bed
+#Find Enhancers
+bedtools subtract -a halper_sorted.bed -b promoters.bed > enhancers.bed
+# Count promoters and enhancers
+echo "Promoters:" $(wc -l < promoters.bed)
+echo "Enhancers:" $(wc -l < enhancers.bed)
+
+#Or we can directly use the /ocean/project/bio230007p/ikaplow/HumanGenomeInfo/gencode.V27.annotation.protTranscript.TSSsWithStrand_sorted.bed
+#Always clean and sort the bedfiles before use
