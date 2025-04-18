@@ -1,0 +1,23 @@
+#!/bin/bash
+#SBATCH -p RM-shared
+#SBATCH -t 24:00:00
+#SBATCH --mem=8G
+#SBATCH --ntasks-per-node=4             
+#SBATCH --cpus-per-task=4       
+#SBATCH --export=ALL            
+#SBATCH -o mouse_adrenal.log         
+#SBATCH --job-name=meme_chip
+
+# Load required modules
+module purge
+module load MEME-suite/5.4.1    # Load MEME Suite
+
+#pipeline
+REF_DIR="/ocean/projects/bio230007p/zhuang13/ref/motif_db"
+INPUT_DIR="/jet/home/zhuang13/project/fasta_OCR"
+OUT_DIR="/jet/home/zhuang13/project/centrimo_out"
+
+meme-chip -oc $OUT_DIR/memechip_mouse_adrenal \
+  -db $REF_DIR/HOCOMOCOv11_full_MOUSE.meme \
+  -meme-nmotifs 2 \
+  $INPUT_DIR/mouse_adrenal.fa
