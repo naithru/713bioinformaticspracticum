@@ -20,18 +20,18 @@ This project analyzes the conservation of open chromatin regions (enhancers/prom
 ## Setup
 
 ### Dependencies
-1. https://github.com/pfenninglab/halLiftover-postprocessing
-2. https://bedtools.readthedocs.io/en/latest/
-3. https://meme-suite.org/meme/
+1. [HALPER and HalLiftover](https://github.com/pfenninglab/halLiftover-postprocessing)
+2. [bedttols](https://anaconda.org/bioconda/bedtools)
+3. [Gene Ontology Enrichment](http://great.stanford.edu/public/cgi-bin/greatWeb.php)
+4. [MEMEsuite](https://meme-suite.org/meme//doc/download.html)
+5. Python - Must be already available.
+6. [Anaconda3](https://www.anaconda.com/docs/getting-started/anaconda/install) - If Conda environment is needed.
 
 ### Installation
 
 # Create Conda environment
 conda create -n conservation-env -c bioconda hal bedtools python=3.8
 conda activate conservation-env
-# Clone this repository
-git clone https://github.com/pfenninglab/halLiftover-postprocessing.git
-
 halLiftover --help        # Should show usage
 halStats --version        # Confirm HAL is installed
 bedtools --version        # Ensure v2.30+
@@ -44,9 +44,5 @@ sed -i 's/conda activate hal/conda activate YOUR_ENV_NAME/g' \
 - **HAL Tools**: For halLiftover (install via Conda).
 - conda create -n hal python=3.7  # Name MUST be "hal" for HALPER compatibility
 conda activate hal
-- **HALPER**: Post-processing scripts from [pfenninglab/halLiftover-postprocessing](https://github.com/pfenninglab/halLiftover-postprocessing).
-conda install -c bioconda hal bedtools  # Install HAL tools + BEDTools
-conda install -c conda-forge git        # Install Git
-- **Python**: For plotting and data manipulation.
 
 
