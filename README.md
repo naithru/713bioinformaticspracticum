@@ -45,4 +45,12 @@ sed -i 's/conda activate hal/conda activate YOUR_ENV_NAME/g' \
 - conda create -n hal python=3.7  # Name MUST be "hal" for HALPER compatibility
 conda activate hal
 
+### Contributors
+1. Jiayi Zhao (jiayizh3@andrew.cmu.edu)
+2. Shreya Rao SS (ssamaved@andrew.cmu.edu)
+3. Naithruvan Rammohan (nrammoha@andrew.cmu.edu)
+4. Ziyun Huang (ziyunh@andrew.cmu.edu)
 
+### Project Guide
+1. Dr. Irene Kaplow - ikaplow@andrew.cmu.edu
+2. Wanxing Zhang (TA) - wanxingz@andrew.cmu.edu
