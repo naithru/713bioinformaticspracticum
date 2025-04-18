@@ -1,0 +1,25 @@
+#!/bin/bash
+# source /opt/packages/anaconda3-2024.10-1/etc/profile.d/conda.sh
+
+#SBATCH -p RM-shared
+#SBATCH -t 24:00:00
+#SBATCH --mem=6G
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
+#SBATCH --account bio230007p
+#SBATCH -J AdrenlGland_halper
+#SBATCH -e /ocean/projects/bio230007p/jzhao15/project/map_results/AdrenlGland_run.err
+#SBATCH -o /ocean/projects/bio230007p/jzhao15/project/map_results/AdrenlGland_run.out
+#SBATCH --export=ALL
+
+#echo commands to stdout
+set -x
+
+bash halper_map_peak_orthologs.sh \
+  -b /ocean/projects/bio230007p/jzhao15/project/map_results/AdrenlGland_results/HumanAdrenlGland_to_MouseAG/idr.conservative_peak.narrowPeak \
+  -o /ocean/projects/bio230007p/jzhao15/project/map_results/AdrenlGland_results/HumanAdrenlGland_to_MouseAG \
+  -s Human \
+  -t Mouse \
+  -c /ocean/projects/bio230007p/ikaplow/Alignments/10plusway-master.hal
+
+
