@@ -1,0 +1,7 @@
+#Clean the bed files if there are unnecessary tabs in between and at the end of the coordinates. 
+#The clean bed file will be easier to use for finding promoters and enhancers
+#Bedtool only accepts tab delimited files.
+sed -i 's/\t$//' input.bed #To remove trailing spaces
+grep -vwE "chrX.." input.bed > output.bed #search for the unnecessary string and remove it
+sed -i 's/\t/ /g' #Remove tabs and replace it with space (if you have multiple tabs between columns)
+sed -i 's/ /\t/g' #Add uniform tab between columns after removing unnecessary
