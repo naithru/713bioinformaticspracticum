@@ -20,7 +20,7 @@ This project analyzes the conservation of open chromatin regions (enhancers/prom
 ## Setup
 
 ### Dependencies
-1. [HALPER and HalLiftover](https://github.com/pfenninglab/halLiftover-postprocessing)
+1. [HALPER and HalLiftover](https://github.com/pfenninglab/halLiftover-postprocessing) - Clone the repository
 2. [bedttols](https://anaconda.org/bioconda/bedtools)
 3. [Gene Ontology Enrichment](http://great.stanford.edu/public/cgi-bin/greatWeb.php)
 4. [MEMEsuite](https://meme-suite.org/meme//doc/download.html)
