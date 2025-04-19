@@ -45,6 +45,24 @@ sed -i 's/conda activate hal/conda activate YOUR_ENV_NAME/g' \
 - conda create -n hal python=3.7  # Name MUST be "hal" for HALPER compatibility
 conda activate hal
 
+
+### Input files for pipeline
+
+1. HALPER - idr.conservative_peak.narrowPeak
+2. Overlap analysis via bedtool intersect - Bed file from the output of HALPER - mouse_adrenal_peaks.bed
+3. Classifying Enhancers and Promoters - Need to clean the bed files first and named as - halper_cleaned.bed
+4. To find the TSS bedfile - either use the path in /ocean/project/bio230007p
+   /ikaplow/HumanGenomeInfo/gencode.V27.annotation.protTranscript.TSSsWithStrand_sorted.bed
+   or make the promoter bed file from gencode.v44.basic.annotation.gtf.gz (repeat the steps with proper genome for human and mouse)
+5. GREAT - Take the first 3 columns of halper results - named as halper_great_final.bed (Performed on the webtool)
+6. Motif Analysis - all the found enhancers and promoters bed files - example: enhancer_adrenal.bed
+
+### Output files pipeline
+1. After Halper - Bed files. example: mouse_adrenal_peaks.bed
+2. Overlap - txt or output on interactive shell with %
+3. GREAT - Results on the webtool. Can be saved as pdf, png or html
+4. Motif Analysis - #have to update later
+
 ### Contributors
 1. Jiayi Zhao (jiayizh3@andrew.cmu.edu)
 2. Shreya Rao SS (ssamaved@andrew.cmu.edu)
