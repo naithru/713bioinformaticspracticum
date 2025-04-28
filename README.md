@@ -23,8 +23,11 @@ This project analyzes the conservation of open chromatin regions (enhancers/prom
 1. [HALPER and HalLiftover](https://github.com/pfenninglab/halLiftover-postprocessing) - Clone the repository
 2. [bedttols](https://anaconda.org/bioconda/bedtools) - v2.30+
 3. [Gene Ontology Enrichment (GREAT)](http://great.stanford.edu/public/html/index.php) - To use GREAT please cut the first 3 columns from the input files
+
 #Command for keeping only the first 3 columns
+
 cut -f1-3 input_bed_file  > output_file_name 
+
 4. [MEMEsuite](https://meme-suite.org/meme//doc/download.html) -  v MEME-suite/5.4.1 If your input files are not huge, you can also use [MEME-ChIP webtool](https://meme-suite.org/meme/tools/meme-chip)
 5. [Anaconda3](https://www.anaconda.com/docs/getting-started/anaconda/install) - For Conda environment and Python. V 2024.10-1
 
