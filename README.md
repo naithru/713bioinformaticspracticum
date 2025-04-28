@@ -34,11 +34,17 @@ cut -f1-3 input_bed_file  > output_file_name
 ### Installation
 
 # Create Conda environment
+
 conda create -n conservation-env -c bioconda hal bedtools python=3.8
+
 conda activate conservation-env
+
 halLiftover --help        # Should show usage
+
 halStats --version        # Confirm HAL is installed
+
 bedtools --version        # Ensure v2.30+
+
 ls repos/halLiftover-postprocessing/scripts/*.py  # Should list scripts
 
 ## *NOTE: For the installation and the entire code, the cloned github repositories are in the repos directory*
