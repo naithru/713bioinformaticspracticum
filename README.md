@@ -26,7 +26,9 @@ This project analyzes the conservation of open chromatin regions (enhancers/prom
 
 #Command for keeping only the first 3 columns
 
-cut -f1-3 input_bed_file  > output_file_name 
+          `cut -f1-3 input_bed_file  > output_file_name`
+
+
 
 4. [MEMEsuite](https://meme-suite.org/meme//doc/download.html) -  v MEME-suite/5.4.1 If your input files are not huge, you can also use [MEME-ChIP webtool](https://meme-suite.org/meme/tools/meme-chip)
 5. [Anaconda3](https://www.anaconda.com/docs/getting-started/anaconda/install) - For Conda environment and Python. V 2024.10-1
