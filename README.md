@@ -9,7 +9,7 @@ This project analyzes the conservation of open chromatin regions (enhancers/prom
 2.  Map the mouse open chromatin regions to the human genome and map the human open chromatin regions to the mouse genome  - Using Hal and HalLiftover
 3. Find the percentages of the overlapped regions - Using bedtool intersect.
 4. Find the regulatory regions and its functions - Using GREAT webtool.
-5. Divide the open chromatin data into likely enhancers and likely promoters - Using bedtool intersect and GENCODE/ENCODE data.
+5. Divide the open chromatin data into likely enhancers and likely promoters - Using bedtools and GENCODE/ENCODE data.
 6. Find sequence patterns - Motif Analysis - Using MEMESuite, Centrimo, FIMO
 
 
@@ -57,7 +57,7 @@ sed -i 's/conda activate hal/conda activate YOUR_ENV_NAME/g' \
 - conda create -n hal python=3.7  # Name MUST be "hal" for HALPER compatibility
 conda activate hal
 ## For running the entire pipeline, use the below mentioned file (Example run)
-Main.sh
+[Main.sh](https://github.com/naithru/713bioinformaticspracticum/blob/main/Main.sh)
 
 ### Input files for pipeline
 
