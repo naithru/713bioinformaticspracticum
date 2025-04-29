@@ -92,12 +92,30 @@ rule get_fasta:
         """
 
 rule motif_enrichment:
+  rule meme_chip:
+    """
+    Run MEME-ChIP for motif enrichment analysis on liver sequences.
+    """
     input:
-        "results/enhancers_promoters/classified_peaks.bed"
+        fasta="results/fasta_OCR/_{tissue}.fa",
+        motif_db="/ocean/projects/bio230007p/zhuang13/ref/motif_db/HOCOMOCOv11_full_MOUSE.meme"
     output:
-        "results/motif_enrichment/fimo.tsv"
+        outdir=directory("results/centrimo_out/memechip_mouse_{tissue}")
+    params:
+        nmotifs=2
+    threads: 4
+    resources:
+        mem_mb=8000,
+        time="24:00:00"
     shell:
-        "bash scripts/run_motif_analysis.sh {input} {output}"
+        """
+        mkdir -p {output.outdir}
+        meme-chip -oc {output.outdir} \
+            -db {input.motif_db} \
+            -meme-nmotifs {params.nmotifs} \
+            {input.fasta}
+        """
+
 
 rule prepare_GREAT_input:
     """
