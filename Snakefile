@@ -194,7 +194,6 @@ rule get_fasta:
         """
 
 rule motif_enrichment:
-  rule meme_chip:
     """
     Run MEME-ChIP for motif enrichment analysis on liver sequences.
     """
