@@ -41,7 +41,7 @@ rule overlap_analysis_liver:
     output:
         overlap = "/ocean/projects/bio230007p/rammohan/project/map_results/Liver_results/HumanLiver_to_MouseLiver/halper_liver_overlap.bed"
     params:
-        # Path to your overlap job script
+        # path to the job script is overlap_analysis/overlap_liver.job in github
         job_script = "/ocean/projects/bio230007p/rammohan/project/map_results/Liver_results/HumanLiver_to_MouseLiver/overlap_liver.job"
     shell:
         """
