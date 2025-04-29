@@ -84,10 +84,17 @@ rule motif_enrichment:
         "bash scripts/run_motif_analysis.sh {input} {output}"
 
 rule prepare_GREAT_input:
+    """
+    Prepare BED file for GREAT by keeping only the first 3 columns.
+    """
     input:
-        "results/enhancers_promoters/classified_peaks.bed"
+        "results/overlap/mouse_liver_only_OCRs_clean.bed"
     output:
-        "results/GREAT_input/great_ready.bed"
+        "results/great_input/mouse_liver_only_OCRs_clean_3col.bed"
     shell:
-        "bash scripts/prepare_great_input.sh {input} {output}"
+        """
+        mkdir -p results/great_input
+        cut -f1-3 {input} > {output}
+        echo "Prepared GREAT input: {output}"
+        """
 
