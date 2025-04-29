@@ -75,6 +75,22 @@ rule classify_elements:
         echo "Mouse enhancer/promoter annotation complete."
         """
 
+##Please edit this with appropriate file names
+rule get_fasta:
+    """
+    Extract sequences from BED file using bedtools getfasta.
+    """
+    input:
+        bed="data/regions/_{tissue}.bed",
+        genome="/ocean/projects/bio230007p/zhuang13/ref/mm10.fa"
+    output:
+        fasta="results/fasta_OCR/_{tissue}.fa"
+    shell:
+        """
+        mkdir -p results/fasta_OCR
+        bedtools getfasta -fi {input.genome} -bed {input.bed} -fo {output.fasta}
+        """
+
 rule motif_enrichment:
     input:
         "results/enhancers_promoters/classified_peaks.bed"
