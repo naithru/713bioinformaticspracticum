@@ -27,21 +27,26 @@ Mapping human liver IDR peaks to mouse genome in mouse coordinates using HALPER 
         """
         bash {params.job_script}
         """
-
 rule overlap_analysis_liver:
-# This rule intersects HALPER-mapped peaks with mouse liver open chromatin regions
-    # It calculates how many human regions are still open in the mouse liver
-    # NOTE: Update the paths below to your own project directory if needed
+    """
+    Intersect HALPER-mapped human liver peaks with mouse liver ATAC-seq peaks.
+    Calculates how many human regions are still open in the mouse liver.
+    
+    NOTE: Update the paths below to match your own directory structure.
+    """
     input:
         halper_mapped = "/ocean/projects/bio230007p/rammohan/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.HumanToMouse.HALPER.narrowPeak",
         mouse_peaks = "/ocean/projects/bio230007p/rammohan/project/map_results/Liver_results/MouseLiver_peaks.bed"
     output:
         overlap = "/ocean/projects/bio230007p/rammohan/project/map_results/Liver_results/HumanLiver_to_MouseLiver/halper_liver_overlap.bed"
+    params:
+        # Path to your overlap job script
+        job_script = "/ocean/projects/bio230007p/rammohan/project/map_results/Liver_results/HumanLiver_to_MouseLiver/overlap_liver.job"
     shell:
         """
-        bedtools intersect -a {input.halper_mapped} -b {input.mouse_peaks} -wa > {output.overlap}
+        bash {params.job_script}
         """
-
+        
 rule classify_elements:
     input:
         "results/overlap/overlap_peaks.bed"
