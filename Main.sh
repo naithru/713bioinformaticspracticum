@@ -11,6 +11,8 @@ Mapping human liver IDR peaks to mouse genome in mouse coordinates using HALPER 
     input:
     # Unzip and Copy the file of human liver ATAC data from Irene Kaplow /ocean/projects/bio230007p/ikaplow/HumanAtac/Liver/peak/idr_reproducibility/idr.conservative_peak.narrowPeak.gz
     # in your own path the same folder for output
+    # If no access to this file, we provide the liver "idr.conservative_peak.narrowPeak" through the link 
+    # https://github.com/naithru/713bioinformaticspracticum/blob/main/HALPER_code/idr.conservative_peak.narrowPeak
         "/ocean/projects/bio230007p/jzhao15/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.narrowPeak"
     output:
         # Need to edit in your path
