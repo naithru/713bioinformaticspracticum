@@ -21,7 +21,7 @@ Mapping human liver IDR peaks to mouse genome in mouse coordinates using HALPER 
         bed_tfile = "/ocean/projects/bio230007p/jzhao15/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.HumanToMouse.halLiftover.tFile.bed",
         mapped_peaks = "/ocean/projects/bio230007p/jzhao15/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.HumanToMouse.HALPER.narrowPeak"
     
-   params:
+    params:
         # Download the script from the link https://github.com/naithru/713bioinformaticspracticum/blob/main/HALPER_code/liver_map.job in your own path
         job_script = "/ocean/projects/bio230007p/jzhao15/project/HALPER_code/liver_map.job"
         
