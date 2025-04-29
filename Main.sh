@@ -4,13 +4,27 @@ rule all:
         "results/motif_enrichment/fimo.tsv",
         "results/GREAT_input/great_ready.bed"
 
-rule liftover_mapping:
+rule halLiftover_mapping:
+# We do mapping from Human to Mouse to do overlap analysis in mouse coordinates.
+# Mapping of liver example
     input:
-        "data/input_peaks.narrowPeak"
+        "/ocean/projects/bio230007p/jzhao15/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.narrowPeak"
     output:
-        "results/mapped/mapped_peaks.bed"
+        "/ocean/projects/bio230007p/jzhao15/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.HumanToMouse.HALPER.narrowPeak"
+    params:
+        species_source = "Human",
+        species_target = "Mouse",
+        hal_file = "/ocean/projects/bio230007p/ikaplow/Alignments/10plusway-master.hal",
+        work_dir = "/ocean/projects/bio230007p/jzhao15/project/map_results/Liver_results/HumanLiver_to_MouseLiver"
     shell:
-        "bash scripts/run_halper.sh {input} {output}"
+        """
+        bash halper_map_peak_orthologs.sh \
+            -b {input} \
+            -o {params.work_dir} \
+            -s {params.species_source} \
+            -t {params.species_target} \
+            -c {params.hal_file}
+        """
 
 rule overlap_analysis:
     input:
