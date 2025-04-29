@@ -34,6 +34,7 @@ rule overlap_analysis_liver:
     
     NOTE: Update the paths below to match your own directory structure.
     """
+    #Input is a result from HALPER
     input:
         halper_mapped = "/ocean/projects/bio230007p/rammohan/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.HumanToMouse.HALPER.narrowPeak",
         mouse_peaks = "/ocean/projects/bio230007p/rammohan/project/map_results/Liver_results/MouseLiver_peaks.bed"
