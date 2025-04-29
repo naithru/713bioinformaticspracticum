@@ -26,13 +26,16 @@ rule halLiftover_mapping:
             -c {params.hal_file}
         """
 
-rule overlap_analysis:
+rule overlap_analysis_liver:
     input:
-        "results/mapped/mapped_peaks.bed"
+        halper_mapped = "/ocean/projects/bio230007p/rammohan/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.HumanToMouse.HALPER.narrowPeak",
+        mouse_peaks = "/ocean/projects/bio230007p/rammohan/project/map_results/Liver_results/MouseLiver_peaks.bed"
     output:
-        "results/overlap/overlap_peaks.bed"
+        overlap = "/ocean/projects/bio230007p/rammohan/project/map_results/Liver_results/HumanLiver_to_MouseLiver/halper_liver_overlap.bed"
     shell:
-        "bedtools intersect -a {input} -b data/target_regions.bed > {output}"
+        """
+        bedtools intersect -a {input.halper_mapped} -b {input.mouse_peaks} -wa > {output.overlap}
+        """
 
 rule classify_elements:
     input:
