@@ -75,7 +75,7 @@ conda activate hal
 2. Overlap - txt or output on interactive shell with overlap percentages.
 3. Number of Promoters and Enhancers  - Ouput on interactive shell with the number using the echo command.
 4. GREAT - Results on the webtool. Can be saved as pdf, png or html.
-5. Motif Analysis - #have to update later.
+5. Motif Analysis - Results are saved as HTML files.
 
 ### Contributors
 1. Jiayi Zhao (jiayizh3@andrew.cmu.edu)
