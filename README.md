@@ -56,16 +56,22 @@ sed -i 's/conda activate hal/conda activate YOUR_ENV_NAME/g' \
 - **HAL Tools**: For halLiftover (install via Conda).
 - conda create -n hal python=3.7  # Name MUST be "hal" for HALPER compatibility
 conda activate hal
+
 ## For running the entire pipeline, use the below mentioned commands from our Snakefile (Example run)
+
 [Snakefile](https://github.com/naithru/713bioinformaticspracticum/blob/main/Snakefile)
+
 
 `git clone https://github.com/naithru/713bioinformaticspracticum.git
 cd your-repo-name`
+
 `# If you do no have SnakeMake already
 conda create -n atac_env -c bioconda -c conda-forge snakemake
 conda activate atac_env`
+
 `# Basic local run
 snakemake --cores 4`
+
 `Cluster/SLURM example
 snakemake --jobs 20 \
   --cluster "sbatch -p RM-shared --mem=8G -t 24:00:00 -c 4" \
