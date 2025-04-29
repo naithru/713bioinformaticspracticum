@@ -224,9 +224,9 @@ rule prepare_GREAT_input:
     Prepare BED file for GREAT by keeping only the first 3 columns.
     """
     input:
-        "results/overlap/mouse_liver_only_OCRs_clean.bed"
+        "mouse_specific_liver_OCR.bed" #The output file from cross-species liver OCR
     output:
-        "results/great_input/mouse_liver_only_OCRs_clean_3col.bed"
+        "results/great_input/mouse_specific_liver_OCRs_clean_3col.bed"  #Use the output file on the GREAT webtool mentioned on ReadMe
     shell:
         """
         mkdir -p results/great_input
