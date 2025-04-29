@@ -102,6 +102,20 @@ conda activate hal
 4. GREAT - Results on the webtool. Can be saved as pdf, png or html.
 5. Motif Analysis - Results are saved as HTML files.
 
+## Citations
+
+1. Manuscript describing HALPER (cite this): Xiaoyu Zhang, Irene Kaplow, Morgan Wirthlin, Tyler Park, Andreas Pfenning. HALPER facilitates the identification of regulatory element orthologs across species. Bioinformatics, Volume 36, Issue 15, 1 August 2020, Pages 4339-4340.
+2. Manuscript describing the Cactus alignment method (cite this if you are using a Cactus alignment): Benedict Paten, Dent Earl, Ngan Nguyen, Mark Diekhans, Daniel Zerbino and David Haussler. Cactus: Algorithms for genome multiple sequence alignment. Genome Research, Volume 21, Issue 9, 10 June 2011, Pages 1512-1528.
+3. Manuscript describing HAL Format API (cite this if you are using halLiftover or halAlignmentDepth): Glenn Hickey, Benedict Paten, Dent Earl, Daniel Zerbino, and David Haussler. HAL: A Hierarchical Format for Storing and Analyzing Multiple Genome Alignments. Bioinformatics, Volume 29, Issue 10, 15 May 2013, Pages 1341–1342.
+4. Timothy L. Bailey, James Johnson, Charles E. Grant, William S. Noble, "The MEME Suite", Nucleic Acids Research, 43(W1):W39-W49, 2015.
+5. Cory Y McLean, Dave Bristor, Michael Hiller, Shoa L Clarke, Bruce T Schaar, Craig B Lowe, Aaron M Wenger, and Gill Bejerano. "GREAT improves functional interpretation of cis-regulatory regions". Nat. Biotechnol. 28(5):495-501, 2010. PMID 20436461
+6. Yosuke Tanigawa, Ethan S Dyer, Gill Bejerano. "WhichTF is functionally important in your open chromatin data?" PLoS Comput Biol. 2022 Aug 30;18(8):e1010378, 2022. PMID 36040971
+7. Quinlan AR and Hall IM, 2010. BEDTools: a flexible suite of utilities for comparing genomic features. Bioinformatics. 26, 6, pp. 841–842.
+
+
+## How to Cite our repository
+Shreya Rao, S., Naithruvan, R., Jiayi, Z., & Ziyun, H. (2025). Cross Species Regulatory Elements Conservation Analysis (Version 1.0.0) [Computer software]. 
+
 ### Contributors
 1. Jiayi Zhao (jiayizh3@andrew.cmu.edu)
 2. Shreya Rao SS (ssamaved@andrew.cmu.edu)
