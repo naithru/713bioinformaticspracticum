@@ -51,12 +51,29 @@ rule overlap_analysis_liver:
         """
         
 rule classify_elements:
+
+    """
+    Classifying Mouse Liver OCRs as promoters and enhancers based on distance to TSS. Example run.
+    """
     input:
-        "results/overlap/overlap_peaks.bed"
+        tss = "results/annotations/mouse_TSS_strand_sorted.bed",
+        liver = "results/overlap/mouse_liver_only_OCRs_clean.bed",
     output:
-        "results/enhancers_promoters/classified_peaks.bed"
+        liver_promoters = "results/enhancers_promoters/mouse_liver_promoters_2kb.bed",
+        liver_enhancers = "results/enhancers_promoters/mouse_liver_enhancers_2kbplus.bed",
     shell:
-        "bash scripts/classify_elements.sh {input} {output}"
+        """
+        module load bedtools
+
+        mkdir -p results/enhancers_promoters
+
+        # Liver-only OCRs
+        bedtools closest -a {input.liver} -b {input.tss} -D a > results/enhancers_promoters/liver_with_TSS_distance.bed
+        awk '($NF >= -2000 && $NF <= 2000)' results/enhancers_promoters/liver_with_TSS_distance.bed > {output.liver_promoters}
+        awk '($NF < -2000 || $NF > 2000)' results/enhancers_promoters/liver_with_TSS_distance.bed > {output.liver_enhancers}
+        
+        echo "Mouse enhancer/promoter annotation complete."
+        """
 
 rule motif_enrichment:
     input:
