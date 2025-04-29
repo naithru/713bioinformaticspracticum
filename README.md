@@ -61,22 +61,27 @@ conda activate hal
 
 [Snakefile](https://github.com/naithru/713bioinformaticspracticum/blob/main/Snakefile)
 
+#Clone our repository
 
-`git clone https://github.com/naithru/713bioinformaticspracticum.git
-cd your-repo-name`
+`git clone https://github.com/naithru/713bioinformaticspracticum.git`
 
-`# If you do no have SnakeMake already
-conda create -n atac_env -c bioconda -c conda-forge snakemake
-conda activate atac_env`
+`cd your-repo-name`
 
-`# Basic local run
-snakemake --cores 4`
+#If you do no have SnakeMake already
 
-`Cluster/SLURM example
-snakemake --jobs 20 \
+`conda create -n atac_env -c bioconda -c conda-forge snakemake`
+`conda activate atac_env`
+
+#Basic local run
+
+`snakemake --cores 4`
+
+#Cluster/SLURM example
+
+`snakemake --jobs 20 \
   --cluster "sbatch -p RM-shared --mem=8G -t 24:00:00 -c 4" \
-  --latency-wait 60
-`
+  --latency-wait 60`
+
 
 
 ### Input files for pipeline
