@@ -57,7 +57,7 @@ sed -i 's/conda activate hal/conda activate YOUR_ENV_NAME/g' \
 - conda create -n hal python=3.7  # Name MUST be "hal" for HALPER compatibility
 conda activate hal
 
-## For running the entire pipeline, use the below mentioned commands from our Snakefile (Example run)
+## For running the entire pipeline, use the below mentioned commands (Example run) and use the mentioned Snakefile
 
 [Snakefile](https://github.com/naithru/713bioinformaticspracticum/blob/main/Snakefile)
 
@@ -102,7 +102,7 @@ conda activate hal
 4. GREAT - Results on the webtool. Can be saved as pdf, png or html.
 5. Motif Analysis - Results are saved as HTML files.
 
-## Citations
+### Citations
 
 1. Manuscript describing HALPER (cite this): Xiaoyu Zhang, Irene Kaplow, Morgan Wirthlin, Tyler Park, Andreas Pfenning. HALPER facilitates the identification of regulatory element orthologs across species. Bioinformatics, Volume 36, Issue 15, 1 August 2020, Pages 4339-4340.
 2. Manuscript describing the Cactus alignment method (cite this if you are using a Cactus alignment): Benedict Paten, Dent Earl, Ngan Nguyen, Mark Diekhans, Daniel Zerbino and David Haussler. Cactus: Algorithms for genome multiple sequence alignment. Genome Research, Volume 21, Issue 9, 10 June 2011, Pages 1512-1528.
@@ -113,8 +113,8 @@ conda activate hal
 7. Quinlan AR and Hall IM, 2010. BEDTools: a flexible suite of utilities for comparing genomic features. Bioinformatics. 26, 6, pp. 841–842.
 
 
-## How to Cite our repository
-Shreya Rao, S., Naithruvan, R., Jiayi, Z., & Ziyun, H. (2025). Cross Species Regulatory Elements Conservation Analysis (Version 1.0.0) [Computer software]. 
+### How to Cite our repository
+Shreya Rao, S., Naithruvan, R., Jiayi, Z., & Ziyun, H. (2025). Cross Species Regulatory Elements Conservation Analysis (Version 1.0.0) [Computer software]. https://github.com/naithru/713bioinformaticspracticum
 
 ### Contributors
 1. Jiayi Zhao (jiayizh3@andrew.cmu.edu)
