@@ -27,6 +27,9 @@ rule halLiftover_mapping:
         """
 
 rule overlap_analysis_liver:
+# This rule intersects HALPER-mapped peaks with mouse liver open chromatin regions
+    # It calculates how many human regions are still open in the mouse liver
+    # NOTE: Update the paths below to your own project directory if needed
     input:
         halper_mapped = "/ocean/projects/bio230007p/rammohan/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.HumanToMouse.HALPER.narrowPeak",
         mouse_peaks = "/ocean/projects/bio230007p/rammohan/project/map_results/Liver_results/MouseLiver_peaks.bed"
