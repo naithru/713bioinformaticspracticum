@@ -2,7 +2,7 @@
 # source /opt/packages/anaconda3-2024.10-1/etc/profile.d/conda.sh
 
 #SBATCH -p RM-shared
-#SBATCH -t 24:00:00
+#SBATCH -t 2:00:00
 #SBATCH --mem=6G
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
