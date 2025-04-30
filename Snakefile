@@ -160,7 +160,7 @@ rule classify_elements:
         # Download the script in your own path
         
         # cross-tissue in human example
-        # The link of the  human_cross_tissue_script:
+        # The link of the human_cross_tissue_script:
         # https://github.com/naithru/713bioinformaticspracticum/blob/main/Enhancers_and_Promoters/Enhancers_promoters_cross_tissue/human3OCR.sh
         human_cross_tissue_script = "human3OCR.sh"
 
@@ -177,19 +177,33 @@ rule classify_elements:
         bash {params.cross_species_liver_promoter_enhancer_script}
         """
 
-##Please edit this with appropriate file names
 rule get_fasta:
     """
     Extract sequences from BED file using bedtools getfasta.
     """
     input:
         bed="data/regions/_{tissue}.bed",
-        genome="/ocean/projects/bio230007p/zhuang13/ref/mm10.fa"
+        genome="/ocean/projects/bio230007p/zhuang13/ref/mm10.fa" for mouse or "/ocean/projects/bio230007p/zhuang13/ref/hg38.fa" for human.
+
     output:
         fasta="results/fasta_OCR/_{tissue}.fa"
+
+    params:
+        # Download the script in your own path
+        resources:
+        mem_mb=8000,
+        time="2:00:00"
+        # Link to script
+        # https://github.com/naithru/713bioinformaticspracticum/Motif Enrichment/bed2fasta.sh
+
+        # Example files
+        ################# wait the network
+
     shell:
         """
+        # Generate a file to store output FASTA files
         mkdir -p results/fasta_OCR
+        # Run getfasta to extract sequences in FASTA file from BED file
         bedtools getfasta -fi {input.genome} -bed {input.bed} -fo {output.fasta}
         """
 
@@ -198,19 +212,25 @@ rule motif_enrichment:
     Run MEME-ChIP for motif enrichment analysis on liver sequences.
     """
     input:
-        fasta="results/fasta_OCR/_{tissue}.fa",
-        motif_db="/ocean/projects/bio230007p/zhuang13/ref/motif_db/HOCOMOCOv11_full_MOUSE.meme"
+        fasta="results/fasta_OCR/{species}_{tissue}_{enhancer/promoter}.fa",
+        motif_db="/ocean/projects/bio230007p/zhuang13/ref/motif_db/HOCOMOCOv11_full_MOUSE.meme" for mouse, "/ocean/projects/bio230007p/zhuang13/ref/motif_db/HOCOMOCOv11_full_HUMAN.meme" for human
+
     output:
-        outdir=directory("results/centrimo_out/memechip_mouse_{tissue}")
+        outdir=directory("results/output.outdir/memechip_{species}_{tissue}_{enhancer/promoter}")
+
     params:
+        # Download the script in your own path
         nmotifs=2
-    threads: 4
-    resources:
+        threads: 4
+        resources:
         mem_mb=8000,
         time="24:00:00"
+        # Link to script
+        # https://github.com/naithru/713bioinformaticspracticum/Motif Enrichment/memechip.job
+        # Example of output folder(output.outdir): [[[[Link]]]]################ wait the network
+
     shell:
         """
-        mkdir -p {output.outdir}
         meme-chip -oc {output.outdir} \
             -db {input.motif_db} \
             -meme-nmotifs {params.nmotifs} \
