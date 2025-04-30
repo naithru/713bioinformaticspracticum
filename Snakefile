@@ -1,8 +1,34 @@
 rule all:
+    """
+    Final output files to be produced by the pipeline.
+    """
     input:
-        "results/enhancers_promoters/classified_peaks.bed",
-        "results/motif_enrichment/fimo.tsv",
-        "results/GREAT_input/great_ready.bed"
+        bed_sfile = "/ocean/projects/bio230007p/jzhao15/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.HumanToMouse.halLiftover.sFile.bed",
+        bed_tfile = "/ocean/projects/bio230007p/jzhao15/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.HumanToMouse.halLiftover.tFile.bed",
+        mapped_peaks = "/ocean/projects/bio230007p/jzhao15/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.HumanToMouse.HALPER.narrowPeak",
+        overlap = "/ocean/projects/bio230007p/rammohan/project/map_results/Liver_results/HumanLiver_to_MouseLiver/halper_liver_overlap.bed",
+        liver = "Liver_human_peaks.bed",
+        adrenal = "Adrenal_human_peaks.bed",
+        shared_in_human = "step3a_human/human_shared_OCRs.bed",
+        liver_specific = "step3a_human/human_liver_only_OCRs.bed",
+        adrenal_specific = "step3a_human/human_adrenal_only_OCRs.bed",
+        shared_in_liver = "shared_liver_OCR.bed",
+        human_specific = "human_specific_liver_OCR.bed",
+        mouse_specific = "mouse_specific_liver_OCR.bed",
+        shared_enhancers_human = "region_by_TSS_distance_human_shared/shared_enhancers_2kbplus.bed",
+        shared_promoters_human = "region_by_TSS_distance_human_shared/shared_promoters_2kb.bed",
+        liver_only_enhancers_human = "region_by_TSS_distance_human_liver/liver_enhancers_2kbplus.bed",
+        liver_only_promoters_human = "region_by_TSS_distance_human_liver/liver_promoters_2kb.bed",
+        adrenal_only_enhancers_human = "region_by_TSS_distance_human_adrenal/adrenal_enhancers_2kbplus.bed",
+        adrenal_only_promoters_human = "region_by_TSS_distance_human_adrenal/adrenal_promoters_2kb.bed",
+        fasta="results/fasta_OCR/_{tissue}.fa",
+        outdir=directory("results/output.outdir/memechip_{species}_{tissue}_{enhancer/promoter}"),
+        "results/great_input/mouse_specific_liver_OCRs_clean_3col.bed"
+
+
+        
+    
+
 
 rule halLiftover_mapping:
 """
