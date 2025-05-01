@@ -72,6 +72,9 @@ conda activate hal
 `conda create -n atac_env -c bioconda -c conda-forge snakemake`
 `conda activate atac_env`
 
+#Dry run
+`snakemake -np`
+
 #Basic local run
 
 `snakemake --cores 4`
@@ -79,9 +82,8 @@ conda activate hal
 #Cluster/SLURM example
 
 `snakemake --jobs 20 \
-  --cluster "sbatch -p RM-shared --mem=8G -t 24:00:00 -c 4" \
-  --latency-wait 60`
-
+  --cluster "sbatch -p RM-shared --mem=8G -t 24:00:00 -c 4" \   
+  --latency-wait 60` #Please mention more memory and cores when actually running it
 
 
 ### Input files for pipeline
