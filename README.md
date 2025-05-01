@@ -83,7 +83,9 @@ conda activate hal
 
 `snakemake --jobs 20 \
   --cluster "sbatch -p RM-shared --mem=8G -t 24:00:00 -c 4" \   
-  --latency-wait 60` #Please mention more memory and cores when actually running it
+  --latency-wait 60` 
+  
+  #Please mention more memory and cores when actually running it
 
 
 ### Input files for pipeline
