@@ -3,6 +3,11 @@ rule all:
     Final output files to be produced by the pipeline.
     """
     input:
+        rule all:
+    """
+    Final output files to be produced by the pipeline.
+    """
+    input:
         bed_sfile = "/ocean/projects/bio230007p/jzhao15/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.HumanToMouse.halLiftover.sFile.bed",
         bed_tfile = "/ocean/projects/bio230007p/jzhao15/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.HumanToMouse.halLiftover.tFile.bed",
         mapped_peaks = "/ocean/projects/bio230007p/jzhao15/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.HumanToMouse.HALPER.narrowPeak",
@@ -21,9 +26,13 @@ rule all:
         liver_only_promoters_human = "region_by_TSS_distance_human_liver/liver_promoters_2kb.bed",
         adrenal_only_enhancers_human = "region_by_TSS_distance_human_adrenal/adrenal_enhancers_2kbplus.bed",
         adrenal_only_promoters_human = "region_by_TSS_distance_human_adrenal/adrenal_promoters_2kb.bed",
-        fasta="results/fasta_OCR/_{tissue}.fa",
-        outdir=directory("results/output.outdir/memechip_{species}_{tissue}_{enhancer/promoter}"),
-        "results/great_input/mouse_specific_liver_OCRs_clean_3col.bed"
+        fasta = expand("results/fasta_OCR/_{tissue}.fa", tissue=["liver", "adrenal"]),
+        outdir = expand("results/output.outdir/memechip_{species}_{tissue}_{element}",
+                        species=["human", "mouse"],
+                        tissue=["liver", "adrenal"],
+                        element=["enhancer", "promoter"]),
+        great_input = "results/great_input/mouse_specific_liver_OCRs_clean_3col.bed"
+
 
 
         
