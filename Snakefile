@@ -3,11 +3,6 @@ rule all:
     Final output files to be produced by the pipeline.
     """
     input:
-        rule all:
-    """
-    Final output files to be produced by the pipeline.
-    """
-    input:
         bed_sfile = "/ocean/projects/bio230007p/jzhao15/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.HumanToMouse.halLiftover.sFile.bed",
         bed_tfile = "/ocean/projects/bio230007p/jzhao15/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.HumanToMouse.halLiftover.tFile.bed",
         mapped_peaks = "/ocean/projects/bio230007p/jzhao15/project/map_results/Liver_results/HumanLiver_to_MouseLiver/idr.conservative_peak.HumanToMouse.HALPER.narrowPeak",
